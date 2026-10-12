@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="d-flex justify-content-center bg-dark">
+  <div class="bg-white w-80 p-3 rounded vh-100 m-3">
+  <h1 class="text-white text-center bg-info">
+show All Products</h1> 
+<table class="table table-striped">
+<thead><tr>
+<th>Product ID</th><th>Product Name</th>
+<th>Product Company</th><th>Product Price</th>
+</tr></thead>
+<tbody>
+{% csrf_token %}
+{% for product in allProducts %}
+<tr>
+<td>{{product.p_id}}</td>
+<td>{{product.p_name}}</td>
+<td>{{product.p_company}}</td>
+<td>{{product.p_price}}</td>
+<td><a href="../deleteProduct?id={{product.p_id}}" role="button" class="btn btn-danger">Delete</a></td>
+<td><a href="../updateProduct?id={{product.p_id}}" role="button" class="btn btn-primary">Update</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endblock %}

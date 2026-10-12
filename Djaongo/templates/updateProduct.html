@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center bg-dark">
+<div class="bg-white w-50 p-3 rounded vh-100 m-3">
+<h1 class="text-primary text-center bg-info">Update Product record</h1>
+
+<form action="" method="post">
+{% csrf_token %}
+{{form.as_table}}
+<input type="submit" value="Update Product" class="btn btn-success mt-2" />
+</form>
+
+</div>
+</div>
+{% endblock %}
